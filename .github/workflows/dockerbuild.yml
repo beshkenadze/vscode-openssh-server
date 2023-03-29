@@ -19,7 +19,7 @@ jobs:
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag ${{ steps.extract_repository.outputs.repository }}:$(date +%s) --tag ${{ steps.extract_repository.outputs.repository }}:${{ steps.extract_branch.outputs.branch }}
       - name: Publish to Registry
-        uses: elgohr/Publish-Docker-Github-Action@master
+        uses: elgohr/Publish-Docker-Github-Action@v5
         with:
           name: ${{ steps.extract_repository.outputs.repository }}
           username: ${{ secrets.DOCKER_USERNAME }}
